@@ -1,0 +1,1790 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass paper
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{txfonts}
+\usepackage{pxfonts}
+\usepackage{titling}
+\usepackage{array}
+%\usepackage{yhmath}
+
+\newdimen\un \un=1mm
+\def\bordure{
+\begin{tikzpicture}[overlay,remember picture]
+\node(Triskell) at ($(current page.north west)+(21*\un,-20*\un)$){};
+\def\p{.75}
+\def\ang{45}
+\def\alp{160.2}
+\def\bet{72.42}
+\def\gam{-13.2}
+\draw [very thick, line width = 8pt, color = red!25!blue!33.333!green!50]
+($(current page.north west)+(20*\un,-20*\un)$)
+-- ($(current page.north east)+(-24*\un,-20*\un)$)
+node [draw, ellipse, fill, text=white, pos=.5] {\thetitle}
+arc (90 : 0 : 4*\un)
+-- ($(current page.south east)+(-20*\un,24*\un)$)
+node[text=white,pos=.65 , rotate=90]
+{\tiny Ce document est sous licence GNU FDL,
+ il est librement modifiable et distribuable.
+ Licence et sources complètes disponibles sur le site.
+ Copyright 2016, Jean-Christophe Jameux}
+arc (0 : -90 : 4*\un)
+-- ($(current page.south west)+(24*\un,20*\un)$)
+node[draw, ellipse, fill, text=white, pos=.2] {\bf\large Echologie.org}
+arc (-90 : -180 : 4*\un)
+-- ($(current page.north west)+(20*\un,-20*\un)$);
+\draw [fill = white, color = red!25!blue!33.333!green!50]
+(Triskell) + (1.2*\un,-6*\un) circle (15*\un);
+\draw [fill = white, color = white] (Triskell) circle (2*\un);
+\draw [fill = white, color = white]
+(Triskell) + ({120*(1+\p)} : 3*\un)
+arc ({120*(1+\p)} : 120 : 3*\un)
+arc (180+\ang : 180-\ang :3*\un)
+arc (\alp-\ang : \alp+\ang+24.8 : 5*\un);
+\draw [fill = white, color = white]
+(Triskell) + (120*\p : 3*\un)
+arc (120*\p : 0 : 3*\un)
+arc (90+\ang : 90-\ang : 6*\un)
+arc (\bet-\ang : \bet+\ang+5.9 : 8*\un);
+\draw [fill = white, color = white]
+(Triskell) + ({120*(2+\p)} : 3*\un)
+arc ({120*(2+\p)} : 240 : 3*\un)
+arc (\ang : -\ang : 12*\un)
+arc (\gam-\ang : \gam+\ang+.85 : 13*\un);
+\end{tikzpicture}}
+\end_preamble
+\options 12pt
+\use_default_options true
+\maintain_unincluded_children false
+\language french
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 30mm
+\topmargin 34mm
+\rightmargin 30mm
+\bottommargin 0mm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip bigskip
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle empty
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{
+\backslash
+LARGE
+\backslash
+bf Etudes de fonctions}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcounter{exo}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcounter{Q}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newcounter{q}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+catcode`13
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\~}{\stepcounter{exo}\setcounter{Q}0\setcounter{q}0{\par\kern6mm {\bf \underline{Exercice \theexo}\par\kern2mm }}}
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+catcode`/13
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\/}{\stepcounter{Q}\setcounter{q}0{\par\kern1mm \hskip6mm\llap{\rlap{\bf \theQ}\hskip5mm}}}
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+chardef
+\backslash
+et`*
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+catcode`*13
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset FormulaMacro
+\newcommand{\*}{\stepcounter{q}{\bf \alph{q}. }}
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+- -#1`{
+\backslash
+let
+\backslash
+paal*
+\backslash
+def*{
+\backslash
+stepcounter{q}{
+\backslash
+bf
+\backslash
+alph{q}.
+ }
+\backslash
+def*{
+\backslash
+stepcounter{q}
+\backslash
+hfill{
+\backslash
+bf
+\backslash
+alph{q}.
+ }}}
+\backslash
+par
+\backslash
+kern1mm#1
+\backslash
+hfill
+\backslash
+hfill
+\backslash
+let*
+\backslash
+paal}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+null
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Pour chacune des affirmations suivantes, indiquer si elle est vraie ou fausse.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern4mm
+\end_layout
+
+\end_inset
+
+ Partie A
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern2mm
+\end_layout
+
+\end_inset
+
+ Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ une fonction dÃ©finie et dÃ©rivable sur l'intervalle 
+\begin_inset Formula $]0;+\infty[$
+\end_inset
+
+, stricement croissante sur l'intervalle 
+\begin_inset Formula $]0;2]$
+\end_inset
+
+ et strictement dÃ©croissante sur l'intervalle 
+\begin_inset Formula $[2;+\infty[$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On note 
+\begin_inset Formula $f'$
+\end_inset
+
+ la fonction dÃ©rivÃ©e de 
+\begin_inset Formula $f$
+\end_inset
+
+ sur l'intervalle 
+\begin_inset Formula $]0;+\infty[$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La courbe reprÃ©sentative 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ de la fonction 
+\begin_inset Formula $f$
+\end_inset
+
+ dans un repÃ¨re orthonormal du plan est tracÃ©e ci-dessous.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+shorthandoff{:}
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+chardef*
+\backslash
+et
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+catcode`*12
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw[->,>=latex] (-.5,0) -- (13,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw[->,>=latex] (0,-4) -- (0,2.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw [gray, very thin] (-.5,-4) grid  (13,2.5);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw	(.6,-4) ..controls +(85:.5) and +(-.2,-.7)..
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+				(1,-2) ..controls +(.2,.7) and +(-135:.5)..
+\end_layout
+
+\begin_layout Plain Layout
+
+				(2,0)..controls +(45:.5) and +(180:1)..
+\end_layout
+
+\begin_layout Plain Layout
+
+				(4,1) ..controls +(0:1.2) and +(145:1.2)..
+\end_layout
+
+\begin_layout Plain Layout
+
+				(7,0)..controls +(-45:.9) and +(140:.5)..
+\end_layout
+
+\begin_layout Plain Layout
+
+				(11.5,-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw[<->,>=latex](3,1)--(5,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw[->,>=latex](0,0)--node[below]{$
+\backslash
+i$}(2,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw[->,>=latex](0,0)--node[left]{$
+\backslash
+j$}(0,1);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[below right] at(1,-2){$A$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above left] at(2,1.5){$E$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at(1,-2){
+\backslash
+tiny$
+\backslash
+bullet$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at(2,1.5){
+\backslash
+tiny$
+\backslash
+bullet$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw plot[smooth,domain=-4:2.5] (.285714286*
+\backslash
+x+1.571428571,
+\backslash
+x);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above left] at(2,0){$B$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above] at(4,1){$C$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at(2,0){
+\backslash
+tiny$
+\backslash
+bullet$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at(2,1.5){
+\backslash
+tiny$
+\backslash
+bullet$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above right] at(7,0){$D$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node at(2,0){
+\backslash
+tiny$
+\backslash
+bullet$};
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+node[above right] at(10,-2.5){$
+\backslash
+Gamma$};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+La courbe 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ passe par les points 
+\begin_inset Formula $A\left(\pfrac12;-2\right)$
+\end_inset
+
+, 
+\begin_inset Formula $B\left(1;0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $C\left(2;1\right)$
+\end_inset
+
+ et 
+\begin_inset Formula $D\left(\pfrac72;0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $E$
+\end_inset
+
+ est le point de coordonnÃ©es 
+\begin_inset Formula $\left(1;\pfrac32\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La courbe 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ admet au point 
+\begin_inset Formula $C$
+\end_inset
+
+ une tangente parallÃ¨le Ã  l'axe des abscisses.
+\end_layout
+
+\begin_layout Standard
+La droite 
+\begin_inset Formula $(AE)$
+\end_inset
+
+ est la tangente au point 
+\begin_inset Formula $A$
+\end_inset
+
+ Ã  la courbe 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+ /L'Ã©quation 
+\begin_inset Formula $f\left(x\right)=-1$
+\end_inset
+
+ admet exactement deux solutions dans l'intervalle 
+\begin_inset Formula $]0;+\infty[$
+\end_inset
+
+ /Le coefficient directeur de la droite 
+\begin_inset Formula $(AE)$
+\end_inset
+
+ est Ã©gal Ã  
+\begin_inset Formula $\pfrac17$
+\end_inset
+
+ /
+\begin_inset Formula $f'\left(2\right)=0$
+\end_inset
+
+ /Les fonctions 
+\begin_inset Formula $f$
+\end_inset
+
+ et 
+\begin_inset Formula $f'$
+\end_inset
+
+ ont le mÃªme signe sur l'intervalle 
+\begin_inset Formula $[1;2]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern4mm
+\end_layout
+
+\end_inset
+
+ Partie B
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern2mm
+\end_layout
+
+\end_inset
+
+ Soit 
+\begin_inset Formula $g$
+\end_inset
+
+ la fonction dÃ©finie sur 
+\begin_inset Formula $\R$
+\end_inset
+
+ par: 
+\begin_inset Formula $g\left(c\right)=x^{3}+3x^{2}+5x-3$
+\end_inset
+
+ / 
+\begin_inset Formula $g$
+\end_inset
+
+ est monotone sur 
+\begin_inset Formula $\R$
+\end_inset
+
+ /La courbe reprÃ©sentative de 
+\begin_inset Formula $g$
+\end_inset
+
+ possÃ¨de deux tangentes parallÃ¨les Ã  l'axe des abscisses /La tangente
+ au point d'abscisse 0 Ã  la courbe reprÃ©sentative de 
+\begin_inset Formula $g$
+\end_inset
+
+ a pour Ã©quation 
+\begin_inset Formula $y=5x-3$
+\end_inset
+
+ /L'Ã©quation 
+\begin_inset Formula $g\left(x\right)=0$
+\end_inset
+
+ possÃ¨de trois soltions sur 
+\begin_inset Formula $\R$
+\end_inset
+
+ 
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset VSpace vfill
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+MÃªme exercice
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern1mm
+\end_layout
+
+\end_inset
+
+ Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction dÃ©finie pour tout rÃ©el 
+\begin_inset Formula $x\neq3$
+\end_inset
+
+ par: 
+\begin_inset Formula ${\displaystyle f\left(x\right)=\frac{-x^{2}+5x-5}{x-3}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On appelle 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ sa courbe reprÃ©sentative dans le plan muni d'un repÃ¨re.
+ /Une autre expression de 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ est: 
+\begin_inset Formula ${\displaystyle f\left(x\right)=-x+2+\frac{1}{x-3}}$
+\end_inset
+
+ /
+\begin_inset Formula ${\displaystyle \lim_{x\to+\infty}f\left(x\right)=+\infty}$
+\end_inset
+
+ /La droite d'Ã©quation 
+\begin_inset Formula $y=3$
+\end_inset
+
+ est asymptote Ã  la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ /La droite 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ d'Ã©quation 
+\begin_inset Formula $y=-x+2$
+\end_inset
+
+ est asymptote Ã  la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ en 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ /Si 
+\begin_inset Formula $x>3$
+\end_inset
+
+, la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ est en dessous de la droite 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ /L'Ã©quation 
+\begin_inset Formula $f\left(x\right)=-x+2$
+\end_inset
+
+ n'a aucune solution /Le point 
+\begin_inset Formula $I$
+\end_inset
+
+ de coordonnÃ©es 
+\begin_inset Formula $(3,-1)$
+\end_inset
+
+ est centre de symÃ©trie de la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction dÃ©finie, pour tout rÃ©el 
+\begin_inset Formula $x$
+\end_inset
+
+ autre que 0 ou 1, par: 
+\begin_inset Formula 
+\[
+f\left(x\right)=\frac{2x+1}{x^{2}-x}
+\]
+
+\end_inset
+
+Etudier les limites de 
+\begin_inset Formula $f$
+\end_inset
+
+ aux bornes de son ensemble de dÃ©finition.
+ Donner une Ã©ventuelle interprÃ©tation graphique des rÃ©sultats obtenus.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+MÃªme exercice avec 
+\begin_inset Formula ${\displaystyle f\left(x\right)=\frac{2x+3}{x^{2}+x-2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction dÃ©finie sur 
+\begin_inset Formula $\R$
+\end_inset
+
+ par: 
+\begin_inset Formula ${\displaystyle f\left(x\right)=\frac{-3x^{3}-3x+2x^{2}-1}{x^{2}+1}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern
+\end_layout
+
+\end_inset
+
+1mm /DÃ©terminer les trois rÃ©els 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $b$
+\end_inset
+
+ et 
+\begin_inset Formula $c$
+\end_inset
+
+ tels que, pour tout rÃ©el 
+\begin_inset Formula $x$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+f\left(x\right)=ax+b+\frac{c}{x^{2}+1}
+\]
+
+\end_inset
+
+/En dÃ©duire la limite de 
+\begin_inset Formula $f$
+\end_inset
+
+ en 
+\begin_inset Formula $+\infty$
+\end_inset
+
+ /Soit 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ la courbe reprÃ©sentative de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*Montrer que la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ possÃ¨de une asymptote 
+\begin_inset Formula $\mathscr{D}$
+\end_inset
+
+ en 
+\begin_inset Formula $+\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*Etudier la position relative de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ et 
+\begin_inset Formula $\mathscr{D}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction dÃ©finie par: 
+\begin_inset Formula $f\left(x\right)=\rc{x^{2}-2x}$
+\end_inset
+
+ /DÃ©terminer l'ensemble de dÃ©finition de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ /On appelle 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ la courbe reprÃ©sentative de 
+\begin_inset Formula $f$
+\end_inset
+
+ dans le plan muni d'un repÃ¨re orthogonal.
+ Montrer que la droite 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ d'Ã©quation 
+\begin_inset Formula $x=1$
+\end_inset
+
+ est axe de symÃ©trie de la courbe 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ 
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction numÃ©rique dÃ©finie sur 
+\begin_inset Formula $\R\setminus\{1;-3\}$
+\end_inset
+
+ par : 
+\begin_inset Formula 
+\[
+f\left(x\right)=\frac{2x+2}{x^{2}+2x-3}
+\]
+
+\end_inset
+
+On note 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ la courbe reprÃ©sentative de 
+\begin_inset Formula $f$
+\end_inset
+
+ dans un repÃ¨re orthonormÃ© dâunitÃ© le centimÃ¨tre.
+ /DÃ©terminer les six limites de 
+\begin_inset Formula $f$
+\end_inset
+
+ aux bornes de son domaine de dÃ©finition ; prÃ©ciser les asymptotes Ã 
+ 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+.
+ /Etudier les variations de 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ /*DÃ©terminer les coordonnÃ©es de 
+\begin_inset Formula $I$
+\end_inset
+
+, le point dâintersection de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ avec lâaxe des abscisses.
+\end_layout
+
+\begin_layout Standard
+*DÃ©montrer que 
+\begin_inset Formula $I$
+\end_inset
+
+ est centre de symÃ©trie de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*Donner une Ã©quation de la tangente 
+\begin_inset Formula $T$
+\end_inset
+
+ Ã  
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ en 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ /Tracer 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ et 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Soit 
+\begin_inset Formula $f$
+\end_inset
+
+ la fonction dÃ©finie sur 
+\begin_inset Formula $\R$
+\end_inset
+
+ par : 
+\begin_inset Formula ${\displaystyle f\left(x\right)=\frac{x^{2}+6x}{x^{2}+1}}$
+\end_inset
+
+.
+ On note 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ la courbe reprÃ©sentative de 
+\begin_inset Formula $f$
+\end_inset
+
+ dans un repÃ¨re orthonormÃ© dâunitÃ© le centimÃ¨tre.
+ /Montrer que 
+\begin_inset Formula $f$
+\end_inset
+
+ est impaire.
+ Que peut-on dÃ©duire graphiquement ? /Etudier les variations de 
+\begin_inset Formula $f$
+\end_inset
+
+ sur 
+\begin_inset Formula $[0;+\infty[$
+\end_inset
+
+.
+ (Pour Ã©tudier le signe de la dÃ©rivÃ©e, on posera 
+\begin_inset Formula $X=x^{2}$
+\end_inset
+
+) /DÃ©terminer les rÃ©els 
+\begin_inset Formula $a$
+\end_inset
+
+ et 
+\begin_inset Formula $b$
+\end_inset
+
+ vÃ©rifiant, pour tout 
+\begin_inset Formula $x$
+\end_inset
+
+ rÃ©el: 
+\begin_inset Formula ${\displaystyle f\left(x\right)=ax+\frac{bx}{x^{2}+1}}$
+\end_inset
+
+ /On note 
+\begin_inset Formula $D$
+\end_inset
+
+ la droite dâÃ©quation 
+\begin_inset Formula $y=x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*Calculer 
+\begin_inset Formula ${\displaystyle \lim_{x\to-\infty}\left(f\left(x\right)-x\right)}$
+\end_inset
+
+ et 
+\begin_inset Formula ${\displaystyle \lim_{x\to+\infty}\left(f\left(x\right)-x\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*InterprÃ©ter graphiquement ces limites.
+\end_layout
+
+\begin_layout Standard
+*Etudier le signe de 
+\begin_inset Formula $\left(f\left(x\right)-x\right)$
+\end_inset
+
+ pour tout rÃ©el 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*En dÃ©duire la position de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ par rapport Ã  
+\begin_inset Formula $D$
+\end_inset
+
+.
+ /DÃ©terminer une Ã©quation de la tangente 
+\begin_inset Formula $T$
+\end_inset
+
+ Ã  
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ au point dâabscisse 0.
+ /En tenant compte des rÃ©sultats prÃ©cÃ©dents, reprÃ©senter 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+, 
+\begin_inset Formula $T$
+\end_inset
+
+ et 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Partie A
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern
+\end_layout
+
+\end_inset
+
+2mm Soit la fonction 
+\begin_inset Formula $C$
+\end_inset
+
+ dÃ©finie sur 
+\begin_inset Formula $[0;300]$
+\end_inset
+
+ par : 
+\begin_inset Formula 
+\[
+C\left(x\right)=\frac{x^{3}}{30}-15x^{2}+2500x
+\]
+
+\end_inset
+
+/*Calculer 
+\begin_inset Formula $C'\left(x\right)$
+\end_inset
+
+, oÃ¹ 
+\begin_inset Formula $C'$
+\end_inset
+
+ dÃ©signe la fonction dÃ©rivÃ©e de 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*Etablir le tableau des variations de 
+\begin_inset Formula $C'$
+\end_inset
+
+ sur 
+\begin_inset Formula $[0;300]$
+\end_inset
+
+ et en dÃ©duire son signe /On rapporte le plan Ã  un repÃ¨re orthogonal
+ (unitÃ©s graphiques : 1 cm pour 50 unitÃ©s sur lâaxe des abscisses et
+ 1 cm pour 75 000 unitÃ©s sur lâaxe des ordonnÃ©es).On note 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ la courbe reprÃ©sentative de 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ On note 
+\begin_inset Formula $A$
+\end_inset
+
+ le point de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ dâabscisse 150.
+\end_layout
+
+\begin_layout Standard
+*DÃ©terminer une Ã©quation de la tangente 
+\begin_inset Formula $T$
+\end_inset
+
+ Ã  
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ en 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*A lâaide des variations de 
+\begin_inset Formula $C'$
+\end_inset
+
+, prÃ©ciser la position de 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ par rapport Ã  
+\begin_inset Formula $T$
+\end_inset
+
+ /ReprÃ©senter graphiquement 
+\begin_inset Formula $\mathscr{C}$
+\end_inset
+
+ et 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern
+\end_layout
+
+\end_inset
+
+4mm Partie B
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+kern
+\end_layout
+
+\end_inset
+
+2mm Pour une entreprise 
+\begin_inset Formula $E$
+\end_inset
+
+ dont la production peut varier de 0 Ã  300 unitÃ©s, le coÃ»t total de fabricati
+on de 
+\begin_inset Formula $x$
+\end_inset
+
+ unitÃ©s est donnÃ© par la fonction : 
+\begin_inset Formula 
+\[
+C\left(x\right)=\frac{x^{3}}{30}-15x^{2}+2500x
+\]
+
+\end_inset
+
+On appelle coÃ»t marginal la dÃ©pense occasionnÃ©e par la production dâun
+ objet supplÃ©mentaire ; on choisit comme modÃ©lisation de ce coÃ»t marginal
+ 
+\begin_inset Formula $C_{m}\left(x\right)=C'\left(x\right)$
+\end_inset
+
+.
+ On suppose que lâentreprise est en situation de monopole, ce qui a pour
+ effet que la demande est uniquement en fonction du prix.
+ La relation liant prix de vente unitaire 
+\begin_inset Formula $p$
+\end_inset
+
+ et demande 
+\begin_inset Formula $x$
+\end_inset
+
+ (en unitÃ©s) est : 
+\begin_inset Formula 
+\[
+p\left(x\right)=-\frac{45}{8}x+2750
+\]
+
+\end_inset
+
+(Autrement dit, quand 
+\begin_inset Formula $x$
+\end_inset
+
+ objets sont vendus, chacun lâest au prix 
+\begin_inset Formula $p\left(x\right)$
+\end_inset
+
+).
+ /Calculer la recette totale 
+\begin_inset Formula $R\left(x\right)$
+\end_inset
+
+ pour la vente de 
+\begin_inset Formula $x$
+\end_inset
+
+ objets.
+ /On appelle recette marginale lâaugmentation de recette procurÃ©e par
+ la vente dâun objet supplÃ©mentaire ; on modÃ©lise cette recette marginale
+ par 
+\begin_inset Formula $r_{m}\left(x\right)=R'\left(x\right)$
+\end_inset
+
+ oÃ¹ 
+\begin_inset Formula $R'$
+\end_inset
+
+ est la fonction dÃ©rivÃ©e de 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Pour quelle valeur de 
+\begin_inset Formula $x$
+\end_inset
+
+ la recette marginale est-elle Ã©gale au coÃ»t marginal? /Montrer que le
+ bÃ©nÃ©fice pour la fabrication et la vente de 
+\begin_inset Formula $x$
+\end_inset
+
+ unitÃ©s est donnÃ© par: 
+\begin_inset Formula 
+\[
+B\left(x\right)=-\frac{1}{30}x^{3}+\frac{75}{8}x^{2}+250x
+\]
+
+\end_inset
+
+/*Calculer
+\begin_inset Formula $B'\left(x\right)$
+\end_inset
+
+ oÃ¹ 
+\begin_inset Formula $B'$
+\end_inset
+
+ dÃ©signe la fonction dÃ©rivÃ©e de 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+*En dÃ©duire que le bÃ©nÃ©fice est maximum quand la recette marginale est
+ Ã©gale au coÃ»t marginal.
+ Que vaut alors ce bÃ©nÃ©fice maximum ?
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+Un fabriquant de piÃ¨ces rÃ©alise une production mensuelle de 
+\begin_inset Formula $q$
+\end_inset
+
+ centaines de piÃ¨ces du mÃªme modÃ¨le.
+ Le coÃ»t total de ces piÃ¨ces, exprimÃ© en milliers d'euros, est donnÃ©
+ par: 
+\begin_inset Formula 
+\[
+C\left(q\right)=q^{3}-12q^{2}+48q
+\]
+
+\end_inset
+
+On appelle coÃ»t marginal, notÃ© 
+\begin_inset Formula $C_{ma}\left(q\right)$
+\end_inset
+
+, l'augmentation du coÃ»t total de fabrication d'un objet supplÃ©mentaire
+ sachant qu'on a fabriquÃ© 
+\begin_inset Formula $q$
+\end_inset
+
+ objets.
+\end_layout
+
+\begin_layout Standard
+La production Ã©tant importante, on assimile le coÃ»t marginal au rang 
+\begin_inset Formula $q$
+\end_inset
+
+ Ã  la dÃ©rivÃ©e du coÃ»t total.
+\end_layout
+
+\begin_layout Standard
+Le coÃ»t moyen par centaine de piÃ¨ces, exprimÃ©s en milliers d'euros, est
+ donnÃ© par: 
+\begin_inset Formula 
+\[
+C_{m}\left(q\right)-\frac{C\left(q\right)}{q}
+\]
+
+\end_inset
+
+/Etudier les variations sur 
+\begin_inset Formula $[0;8]$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+*du coÃ»t total
+\end_layout
+
+\begin_layout Standard
+*du coÃ»t moyen
+\end_layout
+
+\begin_layout Standard
+*du coÃ»t marginal /*DÃ©terminer la production 
+\begin_inset Formula $q_{0}$
+\end_inset
+
+ pour laquelle le coÃ»t moyen est minimal
+\end_layout
+
+\begin_layout Standard
+*En calculant de faÃ§on gÃ©nÃ©rale la dÃ©rivÃ©e de la fonction 
+\begin_inset Formula ${\displaystyle q\mapsto\frac{C\left(q\right)}{q}}$
+\end_inset
+
+, dÃ©montrer que: 
+\begin_inset Formula 
+\[
+C_{ma}\left(q_{0}\right)=C_{m}\left(q_{0}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{exo}{0}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 1 p.49 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 1 p.23 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 8 p.24 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 9 p.24 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 11 p.24 
+\begin_inset space ~
+\end_inset
+
+HATIER Cours et Entrainement 13 p.25 
+\begin_inset space ~
+\end_inset
+
+HATIER 100 % Exos 12 p.13 
+\begin_inset space ~
+\end_inset
+
+HATIER 100 % Exos 11 p.12 
+\begin_inset space ~
+\end_inset
+
+HATIER 100 % Exos 13 p.13 
+\begin_inset space ~
+\end_inset
+
+BELIN 15 p.19 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+bordure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
