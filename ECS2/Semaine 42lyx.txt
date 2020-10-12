@@ -1,0 +1,31 @@
+Soit X suit une loi log-normale de paramètre \left(\mu,\sigma^{2}\right)
+, ce qu'on note \mathrm{X\sim Log}\!-\mathcal{N}(\mu,\,\sigma^{2})
+, c'est-à-dire que X est telle que son logarithme suit une loi 
+normale de paramètres \left(\mu,\sigma^{2}\right). Autrement dit, 
+X est de la forme X=e^{T} où T\sim\mathcal{N}(\mu,\sigma^{2}). 
+(son logarithme étant alors bien normal, i.e. \ln X\sim\mathcal{N}(\mu,\sigma^{2})
+).
+
+On notera \Phi la fonction de répartition de la loi normale 
+centrée réduite et \varphi sa fonction de densité usuelle.
+
+Établir une relation entre F_{X}, la fonction de répartition de X
+,et \Phi.
+
+Déterminer la fonction de répartition de X.
+
+En déduire une formule explicite d'une densité f_{X} de X.
+
+Calculer l'espérance de X.
+
+Soit n\in\mathbb{N^{*}}, montrer que si R suit une loi normale de 
+paramètres \left(\mu,\sigma^{2}\right), alors R:=nT suit 
+également une loi normale dont on déterminera les paramètres.
+
+En déduire que pour tout n\in\mathbb{N^{*}}, Y:=X^{n} suit une 
+loi log-normale dont on déterminera les paramètres.
+
+Donner l'espérance de X^{n} en fonction de l'entier n.
+
+En déduire la variance de X.
+

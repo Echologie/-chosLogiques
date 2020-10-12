@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -33,13 +33,9 @@ node [draw, ellipse, fill, text=white, pos=.53] {\thetitle}
 arc (90 : 0 : 4*\un)
 -- ($(current page.south east)+(-20*\un,24*\un)$)
 node[text=white,pos=.54 , rotate=90]
-{\tiny Ce document est sous licence GNU FDL,
- il est librement modifiable et distribuable.
- Licence et sources complètes disponibles sur le site.
- Copyright 2016, Jean-Christophe Jameux}
+{\tiny Ce document est sous licence CC BY-NC-SA 4.0 (creativecommons.org). Copyright 2016-2020, Jean-Christophe Jameux (DocumentsEchologie@Echos.systems}
 arc (0 : -90 : 4*\un)
 -- ($(current page.south west)+(24*\un,20*\un)$)
-node[draw, ellipse, fill, text=white, pos=.3] {\bf\large Echologie.org}
 arc (-90 : -180 : 4*\un)
 -- ($(current page.north west)+(20*\un,-20*\un)$);
 
@@ -82,6 +78,8 @@ arc (\gam-\ang : \gam+\ang+.85 : 13*\un);
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -111,6 +109,7 @@ arc (\gam-\ang : \gam+\ang+.85 : 13*\un);
 \suppress_date false
 \justification false
 \use_refstyle 0
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -123,7 +122,10 @@ arc (\gam-\ang : \gam+\ang+.85 : 13*\un);
 \tocdepth 3
 \paragraph_separation skip
 \defskip medskip
-\quotes_language french
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style swiss
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle empty
@@ -605,7 +607,7 @@ Si la relation entre
 \begin_inset Formula $\Phi$
 \end_inset
 
- ne vous apparaît pas clairement, voyons comment la retrouver en trouvant
+ ne vous apparait pas clairement, voyons comment la retrouver en trouvant
  une relation entre 
 \begin_inset Formula $f_{T}$
 \end_inset
